@@ -18,29 +18,41 @@ namespace Diplom_Project_Telnov
             InitializeComponent();
         }
 
+        DB db = new DB();
+
         private void nextButton_Click(object sender, EventArgs e)
         {
             if (DB_Bakunina.Checked)
             {
 
-                MySqlConnection connection_bak = new MySqlConnection("server=localhost;user=root;password=Semenovski3Polk13;database=ohooligans_bakunina;port=3306");
-
+                string connection_bak = "server=localhost;user=root;password=Semenovski3Polk13;database=ohooligans_bakunina;port=3306";
+                DB.choosePub = connection_bak;
+                MessageBox.Show(connection_bak);
             }
 
             else if (DB_Konushennaya.Checked)
             {
 
-                MySqlConnection connection_kon = new MySqlConnection("server=localhost;user=root;password=Semenovski3Polk13;database=ohooligans_konushennaya;port=3306");
-
+                string connection_kon = "server=localhost;user=root;password=Semenovski3Polk13;database=ohooligans_konushennaya;port=3306";
+                DB.choosePub = connection_kon;
+                MessageBox.Show(connection_kon);
             }
 
             else if (DB_Sadovaya.Checked)
             {
-                MySqlConnection connection_sad = new MySqlConnection("server=localhost;user=root;password=Semenovski3Polk13;database=ohooligans_sadovaya;port=3306");
+                string connection_sad = "server=localhost;user=root;password=Semenovski3Polk13;database=ohooligans_sadovaya;port=3306";
+                DB.choosePub = connection_sad;
+                MessageBox.Show(connection_sad);
             }
-            this.Hide();
+            
             AutorizationForm AutoForm = new AutorizationForm();
             AutoForm.Show();
+            this.Hide();
+        }
+
+        private void chooseDB_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

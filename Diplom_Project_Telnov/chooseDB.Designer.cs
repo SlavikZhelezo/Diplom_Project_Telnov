@@ -93,6 +93,7 @@
             this.Name = "chooseDB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "chooseDB";
+            this.Load += new System.EventHandler(this.chooseDB_Load);
             this.Enter += new System.EventHandler(this.nextButton_Click);
             this.ResumeLayout(false);
             this.PerformLayout();

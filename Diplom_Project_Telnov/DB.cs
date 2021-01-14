@@ -9,7 +9,9 @@ namespace Diplom_Project_Telnov
 {
     class DB
     {
-        MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=Semenovski3Polk13;database=cab_company;port=3306");
+
+        public static string choosePub { get; set; }
+        MySqlConnection connection = new MySqlConnection(choosePub);
 
         public void openConnection()
         {

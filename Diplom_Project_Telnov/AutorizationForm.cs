@@ -16,8 +16,6 @@ namespace Diplom_Project_Telnov
         public AutorizationForm()
         {
             InitializeComponent();
-            chooseDB chdb = new chooseDB();
-            chdb.Show();
         }
 
         public class Safety
@@ -70,7 +68,7 @@ namespace Diplom_Project_Telnov
                         password = password.ToUpper();//перевод пароля из БД в верхний регистр
 
                         DB.SimpleString = id;
-
+                        /*
                         if (password != hashedPassword)
                         {
                             MessageBox.Show("Неверный пароль");
@@ -99,7 +97,7 @@ namespace Diplom_Project_Telnov
                             OperMainForm operFORM = new OperMainForm();
                             operFORM.Show();
                             this.Hide();
-                        }
+                        }*/
                     }
                     db.closeConnection();
                 }
