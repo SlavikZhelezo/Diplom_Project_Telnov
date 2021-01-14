@@ -18,18 +18,22 @@ namespace Diplom_Project_Telnov
             this.WindowState = FormWindowState.Maximized;
             saveButtonP.Visible = false;
             cancelButtonP.Visible = false;
-        }
-
-        private void createOrderP_Paint(object sender, PaintEventArgs e)
-        {
             ordersList.Visible = false;
+            testPanel.Visible = false;
         }
 
+        
         private void exitButton_Click(object sender, EventArgs e)
         {
             AutorizationForm autor = new AutorizationForm();
             autor.Show();
             this.Hide();
+        }
+
+        private void test_Click(object sender, EventArgs e)
+        {
+            ordersList.Visible = true;
+            testPanel.Visible = true;
         }
     }
 
@@ -44,6 +48,5 @@ namespace Diplom_Project_Telnov
         public object time = DateTime.Now.ToString("yyyy.MM.dd  h:mm:ss");
         public double amount_table;
         public string waiter;
-
     }
 }

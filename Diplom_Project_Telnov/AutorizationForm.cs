@@ -108,6 +108,13 @@ namespace Diplom_Project_Telnov
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Waiter wt = new Waiter();
+            wt.Show();
+            this.Hide();
+        }
     }
     
 }

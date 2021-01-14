@@ -31,27 +31,27 @@
             this.exitButton = new System.Windows.Forms.Label();
             this.offButtonL = new System.Windows.Forms.PictureBox();
             this.offButtonP = new System.Windows.Forms.Panel();
-            this.stopListButtonP = new System.Windows.Forms.Panel();
-            this.stopListButtonL = new System.Windows.Forms.Label();
-            this.reservButtonP = new System.Windows.Forms.Panel();
-            this.reservButtonL = new System.Windows.Forms.Label();
-            this.createOrderP = new System.Windows.Forms.Panel();
-            this.createOrderL = new System.Windows.Forms.Label();
-            this.editOrderP = new System.Windows.Forms.Panel();
-            this.editOrderL = new System.Windows.Forms.Label();
             this.saveButtonP = new System.Windows.Forms.Panel();
             this.saveButtonL = new System.Windows.Forms.Label();
             this.cancelButtonP = new System.Windows.Forms.Panel();
             this.cancelButtonL = new System.Windows.Forms.Label();
             this.ordersList = new System.Windows.Forms.Panel();
+            this.testPanel = new System.Windows.Forms.Panel();
+            this.quantity_test = new System.Windows.Forms.Label();
+            this.amount_test = new System.Windows.Forms.Label();
+            this.waiter_test = new System.Windows.Forms.Label();
+            this.table_test = new System.Windows.Forms.Label();
+            this.createOrder = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.reservButton = new System.Windows.Forms.Button();
+            this.stopListButton = new System.Windows.Forms.Button();
+            this.showOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.offButtonL)).BeginInit();
             this.offButtonP.SuspendLayout();
-            this.stopListButtonP.SuspendLayout();
-            this.reservButtonP.SuspendLayout();
-            this.createOrderP.SuspendLayout();
-            this.editOrderP.SuspendLayout();
             this.saveButtonP.SuspendLayout();
             this.cancelButtonP.SuspendLayout();
+            this.ordersList.SuspendLayout();
+            this.testPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // exitButton
@@ -86,96 +86,6 @@
             this.offButtonP.Name = "offButtonP";
             this.offButtonP.Size = new System.Drawing.Size(78, 78);
             this.offButtonP.TabIndex = 6;
-            // 
-            // stopListButtonP
-            // 
-            this.stopListButtonP.BackColor = System.Drawing.Color.LightGray;
-            this.stopListButtonP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.stopListButtonP.Controls.Add(this.stopListButtonL);
-            this.stopListButtonP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.stopListButtonP.Location = new System.Drawing.Point(12, 393);
-            this.stopListButtonP.Name = "stopListButtonP";
-            this.stopListButtonP.Size = new System.Drawing.Size(200, 100);
-            this.stopListButtonP.TabIndex = 2;
-            // 
-            // stopListButtonL
-            // 
-            this.stopListButtonL.AutoSize = true;
-            this.stopListButtonL.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.stopListButtonL.Location = new System.Drawing.Point(19, 24);
-            this.stopListButtonL.MaximumSize = new System.Drawing.Size(190, 0);
-            this.stopListButtonL.Name = "stopListButtonL";
-            this.stopListButtonL.Size = new System.Drawing.Size(147, 50);
-            this.stopListButtonL.TabIndex = 9;
-            this.stopListButtonL.Text = "Ограниченные блюда";
-            this.stopListButtonL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // reservButtonP
-            // 
-            this.reservButtonP.BackColor = System.Drawing.Color.LightGray;
-            this.reservButtonP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.reservButtonP.Controls.Add(this.reservButtonL);
-            this.reservButtonP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.reservButtonP.Location = new System.Drawing.Point(12, 268);
-            this.reservButtonP.Name = "reservButtonP";
-            this.reservButtonP.Size = new System.Drawing.Size(200, 100);
-            this.reservButtonP.TabIndex = 1;
-            // 
-            // reservButtonL
-            // 
-            this.reservButtonL.AutoSize = true;
-            this.reservButtonL.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.reservButtonL.Location = new System.Drawing.Point(19, 38);
-            this.reservButtonL.MaximumSize = new System.Drawing.Size(190, 0);
-            this.reservButtonL.Name = "reservButtonL";
-            this.reservButtonL.Size = new System.Drawing.Size(164, 25);
-            this.reservButtonL.TabIndex = 8;
-            this.reservButtonL.Text = "Резервирование";
-            this.reservButtonL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // createOrderP
-            // 
-            this.createOrderP.BackColor = System.Drawing.Color.LightGray;
-            this.createOrderP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.createOrderP.Controls.Add(this.createOrderL);
-            this.createOrderP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.createOrderP.Location = new System.Drawing.Point(12, 12);
-            this.createOrderP.Name = "createOrderP";
-            this.createOrderP.Size = new System.Drawing.Size(200, 100);
-            this.createOrderP.TabIndex = 0;
-            this.createOrderP.Paint += new System.Windows.Forms.PaintEventHandler(this.createOrderP_Paint);
-            // 
-            // createOrderL
-            // 
-            this.createOrderL.AutoSize = true;
-            this.createOrderL.Location = new System.Drawing.Point(14, 35);
-            this.createOrderL.Name = "createOrderL";
-            this.createOrderL.Size = new System.Drawing.Size(169, 25);
-            this.createOrderL.TabIndex = 7;
-            this.createOrderL.Text = "Создание заказа";
-            // 
-            // editOrderP
-            // 
-            this.editOrderP.BackColor = System.Drawing.Color.LightGray;
-            this.editOrderP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.editOrderP.Controls.Add(this.editOrderL);
-            this.editOrderP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.editOrderP.Location = new System.Drawing.Point(12, 143);
-            this.editOrderP.Name = "editOrderP";
-            this.editOrderP.Size = new System.Drawing.Size(200, 100);
-            this.editOrderP.TabIndex = 1;
-            // 
-            // editOrderL
-            // 
-            this.editOrderL.AutoSize = true;
-            this.editOrderL.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.editOrderL.Location = new System.Drawing.Point(13, 25);
-            this.editOrderL.MaximumSize = new System.Drawing.Size(190, 0);
-            this.editOrderL.Name = "editOrderL";
-            this.editOrderL.Size = new System.Drawing.Size(165, 50);
-            this.editOrderL.TabIndex = 7;
-            this.editOrderL.Text = "Редактирование заказа";
-            this.editOrderL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // saveButtonP
             // 
@@ -227,42 +137,146 @@
             // 
             this.ordersList.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ordersList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ordersList.Controls.Add(this.testPanel);
             this.ordersList.Location = new System.Drawing.Point(246, 12);
             this.ordersList.Name = "ordersList";
             this.ordersList.Size = new System.Drawing.Size(1053, 522);
             this.ordersList.TabIndex = 12;
             this.ordersList.Visible = false;
             // 
+            // testPanel
+            // 
+            this.testPanel.BackColor = System.Drawing.SystemColors.MenuText;
+            this.testPanel.Controls.Add(this.quantity_test);
+            this.testPanel.Controls.Add(this.amount_test);
+            this.testPanel.Controls.Add(this.waiter_test);
+            this.testPanel.Controls.Add(this.table_test);
+            this.testPanel.Location = new System.Drawing.Point(42, 20);
+            this.testPanel.Name = "testPanel";
+            this.testPanel.Size = new System.Drawing.Size(200, 100);
+            this.testPanel.TabIndex = 0;
+            // 
+            // quantity_test
+            // 
+            this.quantity_test.AutoSize = true;
+            this.quantity_test.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.quantity_test.ForeColor = System.Drawing.Color.White;
+            this.quantity_test.Location = new System.Drawing.Point(7, 62);
+            this.quantity_test.Name = "quantity_test";
+            this.quantity_test.Size = new System.Drawing.Size(16, 18);
+            this.quantity_test.TabIndex = 3;
+            this.quantity_test.Text = "0";
+            // 
+            // amount_test
+            // 
+            this.amount_test.AutoSize = true;
+            this.amount_test.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.amount_test.ForeColor = System.Drawing.Color.White;
+            this.amount_test.Location = new System.Drawing.Point(7, 44);
+            this.amount_test.Name = "amount_test";
+            this.amount_test.Size = new System.Drawing.Size(16, 18);
+            this.amount_test.TabIndex = 2;
+            this.amount_test.Text = "0";
+            // 
+            // waiter_test
+            // 
+            this.waiter_test.AutoSize = true;
+            this.waiter_test.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.waiter_test.ForeColor = System.Drawing.Color.White;
+            this.waiter_test.Location = new System.Drawing.Point(7, 26);
+            this.waiter_test.Name = "waiter_test";
+            this.waiter_test.Size = new System.Drawing.Size(80, 18);
+            this.waiter_test.TabIndex = 1;
+            this.waiter_test.Text = "Официант";
+            // 
+            // table_test
+            // 
+            this.table_test.AutoSize = true;
+            this.table_test.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.table_test.ForeColor = System.Drawing.Color.White;
+            this.table_test.Location = new System.Drawing.Point(7, 8);
+            this.table_test.Name = "table_test";
+            this.table_test.Size = new System.Drawing.Size(40, 18);
+            this.table_test.TabIndex = 0;
+            this.table_test.Text = "Тест";
+            // 
+            // createOrder
+            // 
+            this.createOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.createOrder.Location = new System.Drawing.Point(12, 13);
+            this.createOrder.Name = "createOrder";
+            this.createOrder.Size = new System.Drawing.Size(200, 100);
+            this.createOrder.TabIndex = 13;
+            this.createOrder.Text = "Создание заказа";
+            this.createOrder.UseVisualStyleBackColor = true;
+            // 
+            // editButton
+            // 
+            this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.editButton.Location = new System.Drawing.Point(14, 140);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(200, 100);
+            this.editButton.TabIndex = 14;
+            this.editButton.Text = "Редактирование заказа";
+            this.editButton.UseVisualStyleBackColor = true;
+            // 
+            // reservButton
+            // 
+            this.reservButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.reservButton.Location = new System.Drawing.Point(12, 264);
+            this.reservButton.Name = "reservButton";
+            this.reservButton.Size = new System.Drawing.Size(200, 100);
+            this.reservButton.TabIndex = 15;
+            this.reservButton.Text = "Резервирование";
+            this.reservButton.UseVisualStyleBackColor = true;
+            // 
+            // stopListButton
+            // 
+            this.stopListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.stopListButton.Location = new System.Drawing.Point(14, 397);
+            this.stopListButton.Name = "stopListButton";
+            this.stopListButton.Size = new System.Drawing.Size(200, 100);
+            this.stopListButton.TabIndex = 16;
+            this.stopListButton.Text = "Ограниченные блюда";
+            this.stopListButton.UseVisualStyleBackColor = true;
+            // 
+            // showOrder
+            // 
+            this.showOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.showOrder.Location = new System.Drawing.Point(386, 551);
+            this.showOrder.Name = "showOrder";
+            this.showOrder.Size = new System.Drawing.Size(203, 64);
+            this.showOrder.TabIndex = 17;
+            this.showOrder.Text = "Показать заказы";
+            this.showOrder.UseVisualStyleBackColor = true;
+            this.showOrder.Click += new System.EventHandler(this.test_Click);
+            // 
             // Waiter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1311, 626);
+            this.Controls.Add(this.showOrder);
+            this.Controls.Add(this.stopListButton);
+            this.Controls.Add(this.reservButton);
+            this.Controls.Add(this.editButton);
+            this.Controls.Add(this.createOrder);
             this.Controls.Add(this.ordersList);
             this.Controls.Add(this.cancelButtonP);
             this.Controls.Add(this.saveButtonP);
             this.Controls.Add(this.offButtonP);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.stopListButtonP);
-            this.Controls.Add(this.reservButtonP);
-            this.Controls.Add(this.editOrderP);
-            this.Controls.Add(this.createOrderP);
             this.Name = "Waiter";
             this.Text = "Waiter";
             ((System.ComponentModel.ISupportInitialize)(this.offButtonL)).EndInit();
             this.offButtonP.ResumeLayout(false);
-            this.stopListButtonP.ResumeLayout(false);
-            this.stopListButtonP.PerformLayout();
-            this.reservButtonP.ResumeLayout(false);
-            this.reservButtonP.PerformLayout();
-            this.createOrderP.ResumeLayout(false);
-            this.createOrderP.PerformLayout();
-            this.editOrderP.ResumeLayout(false);
-            this.editOrderP.PerformLayout();
             this.saveButtonP.ResumeLayout(false);
             this.saveButtonP.PerformLayout();
             this.cancelButtonP.ResumeLayout(false);
             this.cancelButtonP.PerformLayout();
+            this.ordersList.ResumeLayout(false);
+            this.testPanel.ResumeLayout(false);
+            this.testPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,18 +286,20 @@
         private System.Windows.Forms.Label exitButton;
         private System.Windows.Forms.PictureBox offButtonL;
         private System.Windows.Forms.Panel offButtonP;
-        private System.Windows.Forms.Panel stopListButtonP;
-        private System.Windows.Forms.Label stopListButtonL;
-        private System.Windows.Forms.Panel reservButtonP;
-        private System.Windows.Forms.Label reservButtonL;
-        private System.Windows.Forms.Panel createOrderP;
-        private System.Windows.Forms.Label createOrderL;
-        private System.Windows.Forms.Panel editOrderP;
-        private System.Windows.Forms.Label editOrderL;
         private System.Windows.Forms.Panel saveButtonP;
         private System.Windows.Forms.Label saveButtonL;
         private System.Windows.Forms.Panel cancelButtonP;
         private System.Windows.Forms.Label cancelButtonL;
         private System.Windows.Forms.Panel ordersList;
+        private System.Windows.Forms.Panel testPanel;
+        private System.Windows.Forms.Label quantity_test;
+        private System.Windows.Forms.Label amount_test;
+        private System.Windows.Forms.Label waiter_test;
+        private System.Windows.Forms.Label table_test;
+        private System.Windows.Forms.Button createOrder;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button reservButton;
+        private System.Windows.Forms.Button stopListButton;
+        private System.Windows.Forms.Button showOrder;
     }
 }
