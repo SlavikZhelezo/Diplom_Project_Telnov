@@ -16,33 +16,100 @@ namespace Diplom_Project_Telnov
         public AutorizationForm()
         {
             InitializeComponent();
+            chooseDB chdb = new chooseDB();
+            chdb.Show();
+        }
+
+        public class Safety
+        {
+            public static string Hash(string value)
+            {
+                var sha1 = System.Security.Cryptography.SHA1.Create();
+                var inputBytes = Encoding.UTF8.GetBytes(value);
+                var hash = sha1.ComputeHash(inputBytes);
+
+                var sb = new StringBuilder();
+                for (var i = 0; i < hash.Length; i++)
+                {
+                    sb.Append(hash[i].ToString("X2"));
+                }
+                return sb.ToString();
+            }
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-
-            String loginUser = loginField.Text;
-            String passUser = passwordField.Text;
-
-            DataTable table = new DataTable();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand command = new MySqlCommand("select * from `user` where `user`=@user and `password`= @pass");
-            command.Parameters.Add("@user", MySqlDbType.VarChar).Value = loginUser;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passUser;
-
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
+            string Director = "12a447b6bda6611f1ca0ff50a33eb90bf89e3451";
+            string Administrator = "1eda23758be9e36e5e0d2a6a87de584aaca0193f";
+            string Operator = "d0e687b079fb70f2208d1f8d2c75d64d74925496";
+            try
             {
-                Hide();
-                MainForm mainForm = new MainForm();
-                mainForm.Show();
+                string LoginUser = loginField.Text;
+                string Password = passwordField.Text;
+
+                if (LoginUser == "" || Password == "")
+                    MessageBox.Show("Заполните поля");
+                if (LoginUser.Length < 5 || Password.Length < 5)
+                    MessageBox.Show("Недостаточно символов. Не менее 5-ти символов");
+
+                DB db = new DB();
+                using (MySqlCommand command = new MySqlCommand("SELECT id_user, password, comment FROM user WHERE user=@Login;", db.getConnection()))
+                {
+                    command.Parameters.AddWithValue("@Login", LoginUser);
+                    db.openConnection();
+
+
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string id = Convert.ToString(reader["id_user"]);
+                        string password = Convert.ToString(reader["password"]);
+                        string comment = Convert.ToString(reader["comment"]);
+                        string hashedPassword = Safety.Hash(Password);
+                        password = password.ToUpper();//перевод пароля из БД в верхний регистр
+
+                        DB.SimpleString = id;
+
+                        if (password != hashedPassword)
+                        {
+                            MessageBox.Show("Неверный пароль");
+                        }
+                        else if (password == hashedPassword & comment == Director)
+                        {
+                            Director dirFORM = new Director();
+                            dirFORM.Show();
+                            this.Hide();
+                        }
+                        else if (password == hashedPassword & comment == Administrator)
+                        {
+                            Administrator admFORM = new Administrator();
+                            admFORM.Show();
+                            this.Hide();
+                        }
+                        else if (password == hashedPassword & comment == Operator)
+                        {
+                            OperMainForm operFORM = new OperMainForm();
+                            MessageBox.Show(id);
+                            operFORM.Show();
+                            this.Hide();
+                        }
+                        else if (password == hashedPassword & comment == "Director")
+                        {
+                            OperMainForm operFORM = new OperMainForm();
+                            operFORM.Show();
+                            this.Hide();
+                        }
+                    }
+                    db.closeConnection();
+                }
             }
-            else
-                MessageBox.Show("Неверный логин и/или пароль");
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
+    
 }

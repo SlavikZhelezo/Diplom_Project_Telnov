@@ -40,17 +40,19 @@
             // 
             // loginField
             // 
+            this.loginField.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.loginField.Location = new System.Drawing.Point(118, 103);
             this.loginField.Name = "loginField";
-            this.loginField.Size = new System.Drawing.Size(162, 20);
+            this.loginField.Size = new System.Drawing.Size(162, 30);
             this.loginField.TabIndex = 0;
             // 
             // passwordField
             // 
+            this.passwordField.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.passwordField.Location = new System.Drawing.Point(118, 168);
             this.passwordField.Name = "passwordField";
             this.passwordField.PasswordChar = '*';
-            this.passwordField.Size = new System.Drawing.Size(162, 20);
+            this.passwordField.Size = new System.Drawing.Size(162, 30);
             this.passwordField.TabIndex = 1;
             // 
             // login
@@ -58,7 +60,7 @@
             this.login.AutoSize = true;
             this.login.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.login.ForeColor = System.Drawing.Color.White;
-            this.login.Location = new System.Drawing.Point(13, 103);
+            this.login.Location = new System.Drawing.Point(25, 106);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(68, 25);
             this.login.TabIndex = 2;
@@ -69,7 +71,7 @@
             this.password.AutoSize = true;
             this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.password.ForeColor = System.Drawing.Color.White;
-            this.password.Location = new System.Drawing.Point(12, 163);
+            this.password.Location = new System.Drawing.Point(13, 171);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(80, 25);
             this.password.TabIndex = 3;
