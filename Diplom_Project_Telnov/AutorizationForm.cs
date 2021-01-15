@@ -37,9 +37,9 @@ namespace Diplom_Project_Telnov
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string Director = "12a447b6bda6611f1ca0ff50a33eb90bf89e3451";
-            string Administrator = "1eda23758be9e36e5e0d2a6a87de584aaca0193f";
-            string Operator = "d0e687b079fb70f2208d1f8d2c75d64d74925496";
+            string Director = "Director";
+            string Administrator = "Administrator";
+            string Waiter = "Waiter";
             try
             {
                 string LoginUser = loginField.Text;
@@ -47,11 +47,11 @@ namespace Diplom_Project_Telnov
 
                 if (LoginUser == "" || Password == "")
                     MessageBox.Show("Заполните поля");
-                if (LoginUser.Length < 5 || Password.Length < 5)
+                if (LoginUser.Length < 2 || Password.Length < 2)
                     MessageBox.Show("Недостаточно символов. Не менее 5-ти символов");
 
                 DB db = new DB();
-                using (MySqlCommand command = new MySqlCommand("SELECT id_user, password, comment FROM user WHERE user=@Login;", db.getConnection()))
+                using (MySqlCommand command = new MySqlCommand("SELECT iduser, password, rules FROM user WHERE user=@Login;", db.getConnection()))
                 {
                     command.Parameters.AddWithValue("@Login", LoginUser);
                     db.openConnection();
@@ -61,43 +61,43 @@ namespace Diplom_Project_Telnov
 
                     while (reader.Read())
                     {
-                        string id = Convert.ToString(reader["id_user"]);
+                        string id = Convert.ToString(reader["iduser"]);
                         string password = Convert.ToString(reader["password"]);
-                        string comment = Convert.ToString(reader["comment"]);
-                        string hashedPassword = Safety.Hash(Password);
-                        password = password.ToUpper();//перевод пароля из БД в верхний регистр
+                        string rules = Convert.ToString(reader["rules"]);
+                        //string hashedPassword = Safety.Hash(Password);
+                        //password = password.ToUpper();//перевод пароля из БД в верхний регистр
 
                         DB.SimpleString = id;
-                        /*
-                        if (password != hashedPassword)
+                        
+                        if (password != Password)
                         {
                             MessageBox.Show("Неверный пароль");
                         }
-                        else if (password == hashedPassword & comment == Director)
+                        else if (password == Password & rules == Director)
                         {
-                            Director dirFORM = new Director();
+                            ZavHoz dirFORM = new ZavHoz();
                             dirFORM.Show();
                             this.Hide();
                         }
-                        else if (password == hashedPassword & comment == Administrator)
+                        else if (password == Password & rules == Administrator)
                         {
-                            Administrator admFORM = new Administrator();
+                            Waiter admFORM = new Waiter();
                             admFORM.Show();
                             this.Hide();
                         }
-                        else if (password == hashedPassword & comment == Operator)
+                        else if (password == Password & rules == Waiter)
                         {
-                            OperMainForm operFORM = new OperMainForm();
+                            Waiter waitFORM = new Waiter();
                             MessageBox.Show(id);
-                            operFORM.Show();
+                            waitFORM.Show();
                             this.Hide();
                         }
-                        else if (password == hashedPassword & comment == "Director")
+                        else if (password == Password & rules == "ZavHoz")
                         {
-                            OperMainForm operFORM = new OperMainForm();
-                            operFORM.Show();
+                            ZavHoz dirFORM = new ZavHoz();
+                            dirFORM.Show();
                             this.Hide();
-                        }*/
+                        }
                     }
                     db.closeConnection();
                 }

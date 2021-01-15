@@ -37,9 +37,11 @@
             // DB_Bakunina
             // 
             this.DB_Bakunina.AutoSize = true;
-            this.DB_Bakunina.Location = new System.Drawing.Point(72, 38);
+            this.DB_Bakunina.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.DB_Bakunina.Location = new System.Drawing.Point(52, 15);
+            this.DB_Bakunina.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.DB_Bakunina.Name = "DB_Bakunina";
-            this.DB_Bakunina.Size = new System.Drawing.Size(73, 17);
+            this.DB_Bakunina.Size = new System.Drawing.Size(114, 29);
             this.DB_Bakunina.TabIndex = 0;
             this.DB_Bakunina.TabStop = true;
             this.DB_Bakunina.Text = "Бакунина";
@@ -48,9 +50,11 @@
             // DB_Konushennaya
             // 
             this.DB_Konushennaya.AutoSize = true;
-            this.DB_Konushennaya.Location = new System.Drawing.Point(72, 76);
+            this.DB_Konushennaya.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.DB_Konushennaya.Location = new System.Drawing.Point(52, 74);
+            this.DB_Konushennaya.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.DB_Konushennaya.Name = "DB_Konushennaya";
-            this.DB_Konushennaya.Size = new System.Drawing.Size(90, 17);
+            this.DB_Konushennaya.Size = new System.Drawing.Size(149, 29);
             this.DB_Konushennaya.TabIndex = 1;
             this.DB_Konushennaya.TabStop = true;
             this.DB_Konushennaya.Text = "Конюшенная";
@@ -59,9 +63,11 @@
             // DB_Sadovaya
             // 
             this.DB_Sadovaya.AutoSize = true;
-            this.DB_Sadovaya.Location = new System.Drawing.Point(72, 111);
+            this.DB_Sadovaya.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.DB_Sadovaya.Location = new System.Drawing.Point(52, 127);
+            this.DB_Sadovaya.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.DB_Sadovaya.Name = "DB_Sadovaya";
-            this.DB_Sadovaya.Size = new System.Drawing.Size(68, 17);
+            this.DB_Sadovaya.Size = new System.Drawing.Size(107, 29);
             this.DB_Sadovaya.TabIndex = 2;
             this.DB_Sadovaya.TabStop = true;
             this.DB_Sadovaya.Text = "Садовая";
@@ -71,9 +77,10 @@
             // 
             this.nextButton.BackColor = System.Drawing.Color.Gray;
             this.nextButton.ForeColor = System.Drawing.Color.White;
-            this.nextButton.Location = new System.Drawing.Point(49, 147);
+            this.nextButton.Location = new System.Drawing.Point(14, 183);
+            this.nextButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.nextButton.Name = "nextButton";
-            this.nextButton.Size = new System.Drawing.Size(153, 43);
+            this.nextButton.Size = new System.Drawing.Size(255, 66);
             this.nextButton.TabIndex = 3;
             this.nextButton.Text = "Далее";
             this.nextButton.UseVisualStyleBackColor = false;
@@ -81,15 +88,17 @@
             // 
             // chooseDB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(240, 215);
+            this.ClientSize = new System.Drawing.Size(274, 262);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.DB_Sadovaya);
             this.Controls.Add(this.DB_Konushennaya);
             this.Controls.Add(this.DB_Bakunina);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "chooseDB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "chooseDB";

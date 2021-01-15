@@ -74,6 +74,12 @@
     <Compile Include="Waiter.Designer.cs">
       <DependentUpon>Waiter.cs</DependentUpon>
     </Compile>
+    <Compile Include="ZavHoz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZavHoz.Designer.cs">
+      <DependentUpon>ZavHoz.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="chooseDB.resx">
       <DependentUpon>chooseDB.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="Waiter.resx">
       <DependentUpon>Waiter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZavHoz.resx">
+      <DependentUpon>ZavHoz.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

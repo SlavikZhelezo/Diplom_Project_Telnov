@@ -19,7 +19,6 @@ namespace Diplom_Project_Telnov
             saveButtonP.Visible = false;
             cancelButtonP.Visible = false;
             ordersList.Visible = false;
-            testPanel.Visible = false;
         }
 
         
@@ -33,7 +32,54 @@ namespace Diplom_Project_Telnov
         private void test_Click(object sender, EventArgs e)
         {
             ordersList.Visible = true;
-            testPanel.Visible = true;
+        }
+
+        private void createOrder_Click(object sender, EventArgs e)
+        {
+            ordersList.Visible = true;
+
+            FlowLayoutPanel table = new FlowLayoutPanel();
+            Label number_table = new Label();
+            Label quantity = new Label();
+            Label amount = new Label();
+            Label waiter = new Label();
+
+            // Initialize the Panel control.
+            table.Location = new Point();//создаем панель
+            table.Size = new Size(264, 152);
+            // Set the Borderstyle for the Panel to three-dimensional.
+            table.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+
+            // Initialize the Label and TextBox controls.
+
+            number_table.Location = new Point();//создаем  текст с номером стола
+            number_table.Text = "16";
+            number_table.Size = new Size(104, 16);
+
+            quantity.Location = new Point();//  текст с кол-вом человек
+            quantity.Text = "2";
+            quantity.Size = new Size();
+
+            amount.Location = new Point();//текст с суммой
+            amount.Text = "1435";
+            amount.Size = new Size(104, 16);
+
+            waiter.Location = new Point();//имя официанта
+            waiter.Text = "Sergey";
+            waiter.Size = new Size(104, 16);
+
+            // Add the Panel control to the form.
+            ordersList.Controls.Add(table);
+            // Add the Label and TextBox controls to the Panel.
+            table.Controls.Add(number_table);
+            table.Controls.Add(quantity);
+            table.Controls.Add(waiter);
+            table.Controls.Add(amount);
+        }
+
+        private void offButtonP_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

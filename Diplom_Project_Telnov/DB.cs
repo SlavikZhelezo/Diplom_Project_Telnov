@@ -11,8 +11,8 @@ namespace Diplom_Project_Telnov
     {
 
         public static string choosePub { get; set; }
-        MySqlConnection connection = new MySqlConnection(choosePub);
-
+        //MySqlConnection connection = new MySqlConnection(choosePub);
+        MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=Semenovski3Polk13;database=ohooligans_bakunina;port=3306");
         public void openConnection()
         {
             if (connection.State == System.Data.ConnectionState.Closed)
