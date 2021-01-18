@@ -17,14 +17,11 @@ namespace Diplom_Project_Telnov
         public ZavHoz()
         {
             InitializeComponent();
-            product_number.Visible = true;
-            prodNumbBox.Visible = true;
             nameOfProduct.Visible = true;
             prodNameBox.Visible = true;
             codeOfProducts.Visible = true;
             code.Visible = true;
             unitOfMeasure.Visible = true;
-            unit.Visible = true;
             quantityOfProducts.Visible = true;
             quantityOfProd.Visible = true;
             addLine.Visible = true;
@@ -35,18 +32,22 @@ namespace Diplom_Project_Telnov
             costBox.Visible = true;
             costProducts.Visible = true;
             userPanel.Visible = false;
+            getAlcoButton.Visible = false;
+            addToStorage.Visible = false;
+            unitmeasure.Visible = false;
+            if (DB.SimpleString == "ZavHoz")
+                usersButton.Visible = false;
+            comment.Visible = true;
+            commentText.Visible = true;
         }
 
         private void orderProducts_Click(object sender, EventArgs e)
         {
-            product_number.Visible = true;
-            prodNumbBox.Visible = true;
             nameOfProduct.Visible = true;
             prodNameBox.Visible = true;
             codeOfProducts.Visible = true;
             code.Visible = true;
-            unitOfMeasure.Visible = true;
-            unit.Visible = true;
+            unitOfMeasure.Visible = false;
             quantityOfProducts.Visible = true;
             quantityOfProd.Visible = true;
             addLine.Visible = true;
@@ -64,18 +65,24 @@ namespace Diplom_Project_Telnov
             addToStorage.Visible = false;
             getAlcoButton.Visible = false;
             userPanel.Visible = false;
+            if (DB.SimpleString == "ZavHoz")
+                usersButton.Visible = false;
+
+            comment.Visible = true;
+            commentText.Visible = true;
         }
+
+        int line = 1;
 
         private void addLine_Click(object sender, EventArgs e)
         {
-            int prodNumber = 1;
+            
             string nameprod = prodNameBox.Text;
-            string cod = "114";
-            string unit = "kg";
             string quant = quantityOfProd.Text;
+            string comm = commentText.Text;
 
-            dataGridView1.Rows.Add(prodNumber.ToString(), nameprod, cod, unit, quant);
-            prodNumber++;
+            dataGridView1.Rows.Add(line.ToString(), nameprod, quant, idprov,  comm);
+            line++;
         }
 
         private void deleteOrder_Click(object sender, EventArgs e)
@@ -128,17 +135,14 @@ namespace Diplom_Project_Telnov
 
         private void getProduct_Click(object sender, EventArgs e)
         {
-            product_number.Visible = false;
-            prodNumbBox.Visible = false;
             nameOfProduct.Visible = true;
             prodNameBox.Visible = true;
             codeOfProducts.Visible = true;
             code.Visible = false;
             unitOfMeasure.Visible = true;
-            unit.Visible = false;
             quantityOfProducts.Visible = true;
             quantityOfProd.Visible = true;
-            addLine.Visible = true;
+            addLine.Visible = false;
             dataGridView1.Visible = true;
             deleteOrder.Visible = true;
             deleteSelected.Visible = true;
@@ -153,6 +157,10 @@ namespace Diplom_Project_Telnov
             addToStorage.Visible = true;
             getAlcoButton.Visible = false;
             userPanel.Visible = false;
+            if (DB.SimpleString == "ZavHoz")
+                usersButton.Visible = false;
+            comment.Visible = false;
+            commentText.Visible = false;
         }
 
         private void addToStorage_Click(object sender, EventArgs e)
@@ -228,14 +236,11 @@ namespace Diplom_Project_Telnov
 
         private void getAlco_Click(object sender, EventArgs e)
         {
-            product_number.Visible = false;
-            prodNumbBox.Visible = false;
             nameOfProduct.Visible = true;
             prodNameBox.Visible = true;
             codeOfProducts.Visible = true;
             code.Visible = false;
             unitOfMeasure.Visible = true;
-            unit.Visible = false;
             quantityOfProducts.Visible = true;
             quantityOfProd.Visible = true;
             addLine.Visible = false;
@@ -253,6 +258,10 @@ namespace Diplom_Project_Telnov
             addToStorage.Visible = false;
             userPanel.Visible = false;
             getAlcoButton.Visible = true;
+            if (DB.SimpleString == "ZavHoz")
+                usersButton.Visible = false;
+            comment.Visible = false;
+            commentText.Visible = false;
         }
 
         private void getAlcoButton_Click(object sender, EventArgs e)
@@ -319,7 +328,6 @@ namespace Diplom_Project_Telnov
 
         private void offButtonP_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void offButtonL_Click(object sender, EventArgs e)
@@ -329,14 +337,11 @@ namespace Diplom_Project_Telnov
 
         private void usersButton_Click(object sender, EventArgs e)
         {
-            product_number.Visible = false;
-            prodNumbBox.Visible = false;
             nameOfProduct.Visible = false;
             prodNameBox.Visible = false;
             codeOfProducts.Visible = false;
             code.Visible = false;
             unitOfMeasure.Visible = false;
-            unit.Visible = false;
             quantityOfProducts.Visible = false;
             quantityOfProd.Visible = false;
             addLine.Visible = false;
@@ -353,6 +358,9 @@ namespace Diplom_Project_Telnov
             costProducts.Visible = false;
             addToStorage.Visible = false;
             getAlcoButton.Visible = false;
+
+            comment.Visible = false;
+            commentText.Visible = false;
 
             userPanel.Visible = true;
 
@@ -403,6 +411,101 @@ namespace Diplom_Project_Telnov
             deleteUserButton.Visible = false;
             editUserButton.Visible = true;
             addUserButton.Visible = false;
+        }
+
+        private void deleteUserButton_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            string us = userFeildBox.Text;
+            string id = idFieldBox.Text;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(" Delete from user where (user = '" + us + "' or iduser = '" + id + "')", db.getConnection());
+
+                db.openConnection();
+
+                if (cmd.ExecuteNonQuery() == 1)
+                    MessageBox.Show("Данные удалены");
+                else
+                    MessageBox.Show("Ошибка при удалении данных");
+
+                db.closeConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+        }
+
+        private void addUserButton_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            string us = userFeildBox.Text;
+            string pas = passwordFieldBox.Text;
+
+            try
+            {
+
+                MySqlCommand cmd = new MySqlCommand("call sha1_password('" + us + "', '" + pas + "', '" + ruleB + "')", db.getConnection());
+
+                db.openConnection();
+
+                if (cmd.ExecuteNonQuery() == 1)
+                    MessageBox.Show("Пользователь добавлен");
+                else
+                    MessageBox.Show("Ошибка при добавлении пользователя");
+
+                db.closeConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void editUserButton_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            string us = userFeildBox.Text;
+            string id = idFieldBox.Text;
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(" call update_user('" + us + "', '" + id + "'," + ruleB + ")", db.getConnection());
+
+                db.openConnection();
+
+                if (cmd.ExecuteNonQuery() == 1)
+                    MessageBox.Show("Данные изменены");
+                else
+                    MessageBox.Show("Ошибка при изменении данных");
+
+                db.closeConnection();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }    
+        }
+
+        string ruleB;
+        private void rulesUserCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ruleB = rulesUserCombo.SelectedIndex.ToString();
+            if (ruleB == "0")
+                ruleB = "Director";
+            else if (ruleB == "1")
+                ruleB = "Administrator";
+            else if (ruleB == "2")
+                ruleB = "Waiter";
+            else if (ruleB == "3")
+                ruleB = "ZavHoz";
         }
     }
 }

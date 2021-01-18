@@ -40,20 +40,20 @@ namespace Diplom_Project_Telnov
             string Director = "Director";
             string Administrator = "Administrator";
             string Waiter = "Waiter";
+            string ZavHoz = "ZavHoz";
             try
             {
-                string LoginUser = loginField.Text;
+                string idUser = loginField.Text;
                 string Password = passwordField.Text;
-
-                if (LoginUser == "" || Password == "")
+                if (idUser == "" || Password == "")
                     MessageBox.Show("Заполните поля");
-                if (LoginUser.Length < 2 || Password.Length < 2)
+                if (Password.Length < 2)
                     MessageBox.Show("Недостаточно символов. Не менее 5-ти символов");
 
                 DB db = new DB();
-                using (MySqlCommand command = new MySqlCommand("SELECT iduser, password, rules FROM user WHERE user=@Login;", db.getConnection()))
+                using (MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE iduser=@Login;", db.getConnection()))
                 {
-                    command.Parameters.AddWithValue("@Login", LoginUser);
+                    command.Parameters.AddWithValue("@Login", idUser);
                     db.openConnection();
 
 
@@ -64,10 +64,15 @@ namespace Diplom_Project_Telnov
                         string id = Convert.ToString(reader["iduser"]);
                         string password = Convert.ToString(reader["password"]);
                         string rules = Convert.ToString(reader["rules"]);
-                        //string hashedPassword = Safety.Hash(Password);
+                        string fio = Convert.ToString(reader["user"]);
+                        //string hashedpassword = Safety.Hash(Password);
+                        //MessageBox.Show(password);
+                        //MessageBox.Show(hashedpassword);
                         //password = password.ToUpper();//перевод пароля из БД в верхний регистр
+                        //MessageBox.Show(password);
 
-                        DB.SimpleString = id;
+                        DB.SimpleString = rules;
+                        DB.Name_user = fio;
                         
                         if (password != Password)
                         {
@@ -88,11 +93,10 @@ namespace Diplom_Project_Telnov
                         else if (password == Password & rules == Waiter)
                         {
                             Waiter waitFORM = new Waiter();
-                            MessageBox.Show(id);
                             waitFORM.Show();
                             this.Hide();
                         }
-                        else if (password == Password & rules == "ZavHoz")
+                        else if (password == Password & rules == ZavHoz)
                         {
                             ZavHoz dirFORM = new ZavHoz();
                             dirFORM.Show();
@@ -109,12 +113,7 @@ namespace Diplom_Project_Telnov
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            Waiter wt = new Waiter();
-            wt.Show();
-            this.Hide();
-        }
+        
     }
     
 }
