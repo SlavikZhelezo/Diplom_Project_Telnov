@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,7 @@ namespace Diplom_Project_Telnov
             ordersList.Visible = false;
         }
 
-        
+
         private void exitButton_Click(object sender, EventArgs e)
         {
             AutorizationForm autor = new AutorizationForm();
@@ -36,8 +37,12 @@ namespace Diplom_Project_Telnov
 
         private void createOrder_Click(object sender, EventArgs e)
         {
-            ordersList.Visible = true;
+            InputForm input = new InputForm();
+            input.Show();
 
+            /*
+            ordersList.Visible = true;
+            
             FlowLayoutPanel table = new FlowLayoutPanel();
             Label number_table = new Label();
             Label quantity = new Label();
@@ -74,7 +79,7 @@ namespace Diplom_Project_Telnov
             table.Controls.Add(number_table);
             table.Controls.Add(quantity);
             table.Controls.Add(waiter);
-            table.Controls.Add(amount);
+            table.Controls.Add(amount);*/
         }
 
         private void offButtonP_Paint(object sender, PaintEventArgs e)

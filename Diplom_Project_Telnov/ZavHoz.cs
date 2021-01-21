@@ -36,7 +36,11 @@ namespace Diplom_Project_Telnov
             addToStorage.Visible = false;
             unitmeasure.Visible = false;
             if (DB.SimpleString == "ZavHoz")
+            {
                 usersButton.Visible = false;
+                guestsbd.Visible = false;
+            }
+            guestPanel.Visible = false;
             comment.Visible = true;
             commentText.Visible = true;
         }
@@ -66,8 +70,11 @@ namespace Diplom_Project_Telnov
             getAlcoButton.Visible = false;
             userPanel.Visible = false;
             if (DB.SimpleString == "ZavHoz")
+            {
                 usersButton.Visible = false;
-
+                guestsbd.Visible = false;
+            }
+            guestPanel.Visible = false;
             comment.Visible = true;
             commentText.Visible = true;
         }
@@ -158,9 +165,13 @@ namespace Diplom_Project_Telnov
             getAlcoButton.Visible = false;
             userPanel.Visible = false;
             if (DB.SimpleString == "ZavHoz")
+            {
                 usersButton.Visible = false;
+                guestsbd.Visible = false;
+            }
             comment.Visible = false;
             commentText.Visible = false;
+            guestPanel.Visible = false;
         }
 
         private void addToStorage_Click(object sender, EventArgs e)
@@ -259,9 +270,13 @@ namespace Diplom_Project_Telnov
             userPanel.Visible = false;
             getAlcoButton.Visible = true;
             if (DB.SimpleString == "ZavHoz")
+            {
                 usersButton.Visible = false;
+                guestsbd.Visible = false;
+            }
             comment.Visible = false;
             commentText.Visible = false;
+            guestPanel.Visible = false;
         }
 
         private void getAlcoButton_Click(object sender, EventArgs e)
@@ -358,7 +373,7 @@ namespace Diplom_Project_Telnov
             costProducts.Visible = false;
             addToStorage.Visible = false;
             getAlcoButton.Visible = false;
-
+            guestPanel.Visible = false;
             comment.Visible = false;
             commentText.Visible = false;
 
@@ -506,6 +521,124 @@ namespace Diplom_Project_Telnov
                 ruleB = "Waiter";
             else if (ruleB == "3")
                 ruleB = "ZavHoz";
+        }
+
+        private void guestsbd_Click(object sender, EventArgs e)
+        {
+            nameOfProduct.Visible = false;
+            prodNameBox.Visible = false;
+            codeOfProducts.Visible = false;
+            code.Visible = false;
+            unitOfMeasure.Visible = false;
+            quantityOfProducts.Visible = false;
+            quantityOfProd.Visible = false;
+            addLine.Visible = false;
+            dataGridView1.Visible = false;
+            deleteOrder.Visible = false;
+            deleteSelected.Visible = false;
+            saveOrder.Visible = false;
+            costBox.Visible = false;
+            costProducts.Visible = false;
+            userPanel.Visible = false;
+            getAlcoButton.Visible = false;
+            addToStorage.Visible = false;
+            unitmeasure.Visible = false;
+            guestsbd.Visible = true;
+            comment.Visible = false;
+            commentText.Visible = false;
+            providerID.Visible = false;
+            comboBox1.Visible = false;
+            codeOfProduct.Visible = false;
+            guestPanel.Visible = true;
+
+            string str = "server=localhost;user=root;password=Semenovski3Polk13;database=client_database;port=3306";
+            MySqlConnection connection = new MySqlConnection(str);
+            try
+            {
+                connection.Open();
+                string sql = "SELECT * FROM guests ";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, connection);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                guestdata.DataSource = ds.Tables[0];
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void guestdata_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        string findLine;
+        private void nameSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (nameSearch.Checked == true)
+            {
+                findLine = "name_guest";
+                toSumm.Visible = false;
+            }
+        }
+
+        private void summSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (summSearch.Checked == true)
+            {
+                findLine = "Summ";
+                toSumm.Visible = true;
+            }
+        }
+
+        private void idSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (idSearch.Checked == true)
+            {
+                findLine = "id_guest";
+                toSumm.Visible = false;
+            }
+        }
+
+        private void phoneSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (phoneSearch.Checked == true)
+            {
+                findLine = "Phone_number";
+                toSumm.Visible = false;
+            }
+        }
+
+        private void deleteLine_Click(object sender, EventArgs e)
+        {
+            int index = guestdata.SelectedCells[0].RowIndex;
+            if (index == 0 || index == guestdata.RowCount)
+                MessageBox.Show("Выберите поле для удаления!");
+            else
+                guestdata.Rows.RemoveAt(index);
+        }
+
+        private void Поиск_Click(object sender, EventArgs e)
+        {
+            string str = "server=localhost;user=root;password=Semenovski3Polk13;database=client_database;port=3306";
+            MySqlConnection connection = new MySqlConnection(str);
+            try
+            {
+                connection.Open();
+                string sql = "SELECT * FROM guests  WHERE `"+ findLine +"` = '"+ searchField.Text +"'";
+                MessageBox.Show(sql);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, connection);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                guestdata.DataSource = ds.Tables[0];
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

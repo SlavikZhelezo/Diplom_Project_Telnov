@@ -34,5 +34,46 @@ namespace Diplom_Project_Telnov
         }
 
         public static string SimpleString { get; set; }
+
+        MySqlConnection conn = new MySqlConnection("server=localhost;user=root;password=Semenovski3Polk13;database=client_database;port=3306");
+
+        public void openClient()
+        {
+            if (conn.State == System.Data.ConnectionState.Closed)
+                conn.Open();
+        }
+
+        public void closeClient()
+        {
+            if (conn.State == System.Data.ConnectionState.Open)
+                conn.Close();
+        }
+
+        public MySqlConnection getClient()
+        {
+            return conn;
+        }
+
+        //MySqlConnection connection = new MySqlConnection("server=localhost;user=root;password=Semenovski3Polk13;database=ohooligans_bakunina;port=3306");
+
+        MySqlConnection connector = new MySqlConnection("server=localhost;user=root;password=Semenovski3Polk13;database=bakunina_history;port=3306");
+
+        public void openConn()
+        {
+            if (connector.State == System.Data.ConnectionState.Closed)
+                connector.Open();
+        }
+
+        public void closeConn()
+        {
+            if (connector.State == System.Data.ConnectionState.Open)
+                connector.Close();
+        }
+
+        public MySqlConnection getConn()
+        {
+            return connector;
+
+        }
     }
 }
