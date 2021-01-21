@@ -39,6 +39,7 @@ namespace Diplom_Project_Telnov
             {
                 usersButton.Visible = false;
                 guestsbd.Visible = false;
+                staffButton.Visible = false;
             }
             guestPanel.Visible = false;
             comment.Visible = true;
@@ -550,6 +551,14 @@ namespace Diplom_Project_Telnov
             comboBox1.Visible = false;
             codeOfProduct.Visible = false;
             guestPanel.Visible = true;
+            Поиск.Visible = true;
+            deleteLine.Visible = true;
+            searchField.Visible = true;
+            nameSearch.Visible = true;
+            summSearch.Visible = true;
+            phoneSearch.Visible = true;
+            idSearch.Visible = true;
+            toSumm.Visible = false;
 
             string str = "server=localhost;user=root;password=Semenovski3Polk13;database=client_database;port=3306";
             MySqlConnection connection = new MySqlConnection(str);
@@ -634,6 +643,60 @@ namespace Diplom_Project_Telnov
                 adapter.Fill(ds);
                 guestdata.DataSource = ds.Tables[0];
                 connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void staffButton_Click(object sender, EventArgs e)
+        {
+            nameOfProduct.Visible = false;
+            prodNameBox.Visible = false;
+            codeOfProducts.Visible = false;
+            code.Visible = false;
+            unitOfMeasure.Visible = false;
+            quantityOfProducts.Visible = false;
+            quantityOfProd.Visible = false;
+            addLine.Visible = false;
+            dataGridView1.Visible = false;
+            deleteOrder.Visible = false;
+            deleteSelected.Visible = false;
+            saveOrder.Visible = false;
+            costBox.Visible = false;
+            costProducts.Visible = false;
+            userPanel.Visible = false;
+            getAlcoButton.Visible = false;
+            addToStorage.Visible = false;
+            unitmeasure.Visible = false;
+            guestsbd.Visible = true;
+            comment.Visible = false;
+            commentText.Visible = false;
+            providerID.Visible = false;
+            comboBox1.Visible = false;
+            codeOfProduct.Visible = false;
+            guestPanel.Visible = true;
+            Поиск.Visible = false;
+            deleteLine.Visible = false;
+            searchField.Visible = false;
+            nameSearch.Visible = false;
+            summSearch.Visible = false;
+            phoneSearch.Visible = false;
+            idSearch.Visible = false;
+            toSumm.Visible = false;
+
+            DB db = new DB();
+            db.getConnection();
+            try
+            {
+                db.openConnection();
+                string sql = "SELECT * FROM staff ";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, db.getConnection());
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                guestdata.DataSource = ds.Tables[0];
+                db.closeConnection();
             }
             catch (Exception ex)
             {

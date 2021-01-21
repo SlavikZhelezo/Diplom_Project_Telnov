@@ -80,15 +80,16 @@
             this.commentText = new System.Windows.Forms.TextBox();
             this.comment = new System.Windows.Forms.Label();
             this.guestPanel = new System.Windows.Forms.Panel();
-            this.guestdata = new System.Windows.Forms.DataGridView();
-            this.searchField = new System.Windows.Forms.TextBox();
-            this.nameSearch = new System.Windows.Forms.RadioButton();
-            this.summSearch = new System.Windows.Forms.RadioButton();
-            this.idSearch = new System.Windows.Forms.RadioButton();
-            this.phoneSearch = new System.Windows.Forms.RadioButton();
-            this.Поиск = new System.Windows.Forms.Button();
-            this.deleteLine = new System.Windows.Forms.Button();
             this.toSumm = new System.Windows.Forms.TextBox();
+            this.deleteLine = new System.Windows.Forms.Button();
+            this.Поиск = new System.Windows.Forms.Button();
+            this.phoneSearch = new System.Windows.Forms.RadioButton();
+            this.idSearch = new System.Windows.Forms.RadioButton();
+            this.summSearch = new System.Windows.Forms.RadioButton();
+            this.nameSearch = new System.Windows.Forms.RadioButton();
+            this.searchField = new System.Windows.Forms.TextBox();
+            this.guestdata = new System.Windows.Forms.DataGridView();
+            this.staffButton = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
             this.offButtonP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.offButtonL)).BeginInit();
@@ -101,6 +102,7 @@
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.menuPanel.Controls.Add(this.staffButton);
             this.menuPanel.Controls.Add(this.guestsbd);
             this.menuPanel.Controls.Add(this.usersButton);
             this.menuPanel.Controls.Add(this.offButtonP);
@@ -637,61 +639,35 @@
             this.guestPanel.Size = new System.Drawing.Size(1036, 574);
             this.guestPanel.TabIndex = 28;
             // 
-            // guestdata
+            // toSumm
             // 
-            this.guestdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.guestdata.Location = new System.Drawing.Point(3, 0);
-            this.guestdata.Name = "guestdata";
-            this.guestdata.Size = new System.Drawing.Size(1024, 333);
-            this.guestdata.TabIndex = 0;
-            this.guestdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guestdata_CellContentClick);
+            this.toSumm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.toSumm.Location = new System.Drawing.Point(436, 355);
+            this.toSumm.Name = "toSumm";
+            this.toSumm.Size = new System.Drawing.Size(150, 27);
+            this.toSumm.TabIndex = 8;
             // 
-            // searchField
+            // deleteLine
             // 
-            this.searchField.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.searchField.Location = new System.Drawing.Point(253, 356);
-            this.searchField.Name = "searchField";
-            this.searchField.Size = new System.Drawing.Size(150, 27);
-            this.searchField.TabIndex = 1;
+            this.deleteLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.deleteLine.Location = new System.Drawing.Point(605, 490);
+            this.deleteLine.Name = "deleteLine";
+            this.deleteLine.Size = new System.Drawing.Size(192, 43);
+            this.deleteLine.TabIndex = 7;
+            this.deleteLine.Text = "Удалить";
+            this.deleteLine.UseVisualStyleBackColor = true;
+            this.deleteLine.Click += new System.EventHandler(this.deleteLine_Click);
             // 
-            // nameSearch
+            // Поиск
             // 
-            this.nameSearch.AutoSize = true;
-            this.nameSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.nameSearch.Location = new System.Drawing.Point(30, 356);
-            this.nameSearch.Name = "nameSearch";
-            this.nameSearch.Size = new System.Drawing.Size(106, 26);
-            this.nameSearch.TabIndex = 2;
-            this.nameSearch.TabStop = true;
-            this.nameSearch.Text = "по имени";
-            this.nameSearch.UseVisualStyleBackColor = true;
-            this.nameSearch.CheckedChanged += new System.EventHandler(this.nameSearch_CheckedChanged);
-            // 
-            // summSearch
-            // 
-            this.summSearch.AutoSize = true;
-            this.summSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.summSearch.Location = new System.Drawing.Point(30, 388);
-            this.summSearch.Name = "summSearch";
-            this.summSearch.Size = new System.Drawing.Size(107, 26);
-            this.summSearch.TabIndex = 3;
-            this.summSearch.TabStop = true;
-            this.summSearch.Text = "по сумме";
-            this.summSearch.UseVisualStyleBackColor = true;
-            this.summSearch.CheckedChanged += new System.EventHandler(this.summSearch_CheckedChanged);
-            // 
-            // idSearch
-            // 
-            this.idSearch.AutoSize = true;
-            this.idSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.idSearch.Location = new System.Drawing.Point(30, 420);
-            this.idSearch.Name = "idSearch";
-            this.idSearch.Size = new System.Drawing.Size(67, 26);
-            this.idSearch.TabIndex = 4;
-            this.idSearch.TabStop = true;
-            this.idSearch.Text = "по id";
-            this.idSearch.UseVisualStyleBackColor = true;
-            this.idSearch.CheckedChanged += new System.EventHandler(this.idSearch_CheckedChanged);
+            this.Поиск.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.Поиск.Location = new System.Drawing.Point(605, 348);
+            this.Поиск.Name = "Поиск";
+            this.Поиск.Size = new System.Drawing.Size(192, 43);
+            this.Поиск.TabIndex = 6;
+            this.Поиск.Text = "Поиск";
+            this.Поиск.UseVisualStyleBackColor = true;
+            this.Поиск.Click += new System.EventHandler(this.Поиск_Click);
             // 
             // phoneSearch
             // 
@@ -706,35 +682,73 @@
             this.phoneSearch.UseVisualStyleBackColor = true;
             this.phoneSearch.CheckedChanged += new System.EventHandler(this.phoneSearch_CheckedChanged);
             // 
-            // Поиск
+            // idSearch
             // 
-            this.Поиск.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.Поиск.Location = new System.Drawing.Point(605, 348);
-            this.Поиск.Name = "Поиск";
-            this.Поиск.Size = new System.Drawing.Size(192, 43);
-            this.Поиск.TabIndex = 6;
-            this.Поиск.Text = "Поиск";
-            this.Поиск.UseVisualStyleBackColor = true;
-            this.Поиск.Click += new System.EventHandler(this.Поиск_Click);
+            this.idSearch.AutoSize = true;
+            this.idSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.idSearch.Location = new System.Drawing.Point(30, 420);
+            this.idSearch.Name = "idSearch";
+            this.idSearch.Size = new System.Drawing.Size(67, 26);
+            this.idSearch.TabIndex = 4;
+            this.idSearch.TabStop = true;
+            this.idSearch.Text = "по id";
+            this.idSearch.UseVisualStyleBackColor = true;
+            this.idSearch.CheckedChanged += new System.EventHandler(this.idSearch_CheckedChanged);
             // 
-            // deleteLine
+            // summSearch
             // 
-            this.deleteLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.deleteLine.Location = new System.Drawing.Point(605, 490);
-            this.deleteLine.Name = "deleteLine";
-            this.deleteLine.Size = new System.Drawing.Size(192, 43);
-            this.deleteLine.TabIndex = 7;
-            this.deleteLine.Text = "Удалить";
-            this.deleteLine.UseVisualStyleBackColor = true;
-            this.deleteLine.Click += new System.EventHandler(this.deleteLine_Click);
+            this.summSearch.AutoSize = true;
+            this.summSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.summSearch.Location = new System.Drawing.Point(30, 388);
+            this.summSearch.Name = "summSearch";
+            this.summSearch.Size = new System.Drawing.Size(107, 26);
+            this.summSearch.TabIndex = 3;
+            this.summSearch.TabStop = true;
+            this.summSearch.Text = "по сумме";
+            this.summSearch.UseVisualStyleBackColor = true;
+            this.summSearch.CheckedChanged += new System.EventHandler(this.summSearch_CheckedChanged);
             // 
-            // toSumm
+            // nameSearch
             // 
-            this.toSumm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.toSumm.Location = new System.Drawing.Point(436, 355);
-            this.toSumm.Name = "toSumm";
-            this.toSumm.Size = new System.Drawing.Size(150, 27);
-            this.toSumm.TabIndex = 8;
+            this.nameSearch.AutoSize = true;
+            this.nameSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.nameSearch.Location = new System.Drawing.Point(30, 356);
+            this.nameSearch.Name = "nameSearch";
+            this.nameSearch.Size = new System.Drawing.Size(106, 26);
+            this.nameSearch.TabIndex = 2;
+            this.nameSearch.TabStop = true;
+            this.nameSearch.Text = "по имени";
+            this.nameSearch.UseVisualStyleBackColor = true;
+            this.nameSearch.CheckedChanged += new System.EventHandler(this.nameSearch_CheckedChanged);
+            // 
+            // searchField
+            // 
+            this.searchField.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.searchField.Location = new System.Drawing.Point(253, 356);
+            this.searchField.Name = "searchField";
+            this.searchField.Size = new System.Drawing.Size(150, 27);
+            this.searchField.TabIndex = 1;
+            // 
+            // guestdata
+            // 
+            this.guestdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.guestdata.Location = new System.Drawing.Point(3, 0);
+            this.guestdata.Name = "guestdata";
+            this.guestdata.Size = new System.Drawing.Size(1024, 333);
+            this.guestdata.TabIndex = 0;
+            this.guestdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guestdata_CellContentClick);
+            // 
+            // staffButton
+            // 
+            this.staffButton.AutoSize = true;
+            this.staffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.staffButton.Location = new System.Drawing.Point(29, 234);
+            this.staffButton.MaximumSize = new System.Drawing.Size(170, 0);
+            this.staffButton.Name = "staffButton";
+            this.staffButton.Size = new System.Drawing.Size(110, 22);
+            this.staffButton.TabIndex = 28;
+            this.staffButton.Text = "Сотрудники";
+            this.staffButton.Click += new System.EventHandler(this.staffButton_Click);
             // 
             // ZavHoz
             // 
@@ -846,5 +860,6 @@
         private System.Windows.Forms.RadioButton nameSearch;
         private System.Windows.Forms.TextBox searchField;
         private System.Windows.Forms.TextBox toSumm;
+        private System.Windows.Forms.Label staffButton;
     }
 }

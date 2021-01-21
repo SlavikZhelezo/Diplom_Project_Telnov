@@ -115,36 +115,18 @@ namespace Diplom_Project_Telnov
 
         private void save_order_Click(object sender, EventArgs e)
         {
-            SaveFileDialog save = new SaveFileDialog();
-            save.DefaultExt = "*.txt";
-            Stream myStream;
-            if (save.ShowDialog() == DialogResult.OK)
-            {
-                if ((myStream = save.OpenFile()) != null)
-                {
-                    StreamWriter writer = new StreamWriter(myStream);
+            double summ = 0;
                     try
                     {
                         for (int i = 0; i < orderdata.RowCount - 1; i++)
                         {
-                            for (int j = 0; j < orderdata.ColumnCount; j++)
-                            {
-                                writer.Write(orderdata.Rows[i].Cells[j].Value.ToString());
-                            }
-                            writer.WriteLine();
+                            summ += Convert.ToDouble(orderdata.Rows[i].Cells[3].Value);
                         }
-                    }
+                MessageBox.Show(summ.ToString());                   }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.ToString());
                     }
-                    finally
-                    {
-                        writer.Close();
-                    }
-                    myStream.Close();
-                }
             }
-        }
     }
 }

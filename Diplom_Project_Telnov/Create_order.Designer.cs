@@ -40,12 +40,12 @@
             this.bar = new System.Windows.Forms.Label();
             this.cuisine = new System.Windows.Forms.Label();
             this.orderdata = new System.Windows.Forms.DataGridView();
-            this.number_prod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name_posit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.save_order = new System.Windows.Forms.Button();
             this.ordersList = new System.Windows.Forms.FlowLayoutPanel();
+            this.number_prod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name_posit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderdata)).BeginInit();
             this.SuspendLayout();
@@ -187,32 +187,12 @@
             this.orderdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.number_prod,
             this.Name_posit,
-            this.cost,
-            this.volume});
+            this.volume,
+            this.cost});
             this.orderdata.Location = new System.Drawing.Point(354, 0);
             this.orderdata.Name = "orderdata";
             this.orderdata.Size = new System.Drawing.Size(434, 301);
             this.orderdata.TabIndex = 1;
-            // 
-            // number_prod
-            // 
-            this.number_prod.HeaderText = "Номер блюда";
-            this.number_prod.Name = "number_prod";
-            // 
-            // Name_posit
-            // 
-            this.Name_posit.HeaderText = "Название";
-            this.Name_posit.Name = "Name_posit";
-            // 
-            // cost
-            // 
-            this.cost.HeaderText = "Цена";
-            this.cost.Name = "cost";
-            // 
-            // volume
-            // 
-            this.volume.HeaderText = "Количество";
-            this.volume.Name = "volume";
             // 
             // save_order
             // 
@@ -233,6 +213,26 @@
             this.ordersList.Name = "ordersList";
             this.ordersList.Size = new System.Drawing.Size(425, 289);
             this.ordersList.TabIndex = 19;
+            // 
+            // number_prod
+            // 
+            this.number_prod.HeaderText = "Номер блюда";
+            this.number_prod.Name = "number_prod";
+            // 
+            // Name_posit
+            // 
+            this.Name_posit.HeaderText = "Название";
+            this.Name_posit.Name = "Name_posit";
+            // 
+            // volume
+            // 
+            this.volume.HeaderText = "Количество";
+            this.volume.Name = "volume";
+            // 
+            // cost
+            // 
+            this.cost.HeaderText = "Цена";
+            this.cost.Name = "cost";
             // 
             // Create_order
             // 
@@ -266,11 +266,11 @@
         private System.Windows.Forms.Label Strong;
         private System.Windows.Forms.Label beer;
         private System.Windows.Forms.DataGridView orderdata;
-        private System.Windows.Forms.DataGridViewTextBoxColumn number_prod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name_posit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn volume;
         private System.Windows.Forms.Button save_order;
         private System.Windows.Forms.FlowLayoutPanel ordersList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn number_prod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_posit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn volume;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cost;
     }
 }
