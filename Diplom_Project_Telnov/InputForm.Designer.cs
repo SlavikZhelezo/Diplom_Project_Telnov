@@ -34,6 +34,7 @@
             this.agree = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.waiterActual = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // guest
@@ -96,11 +97,23 @@
             this.waiterActual.TabIndex = 8;
             this.waiterActual.Text = "Официант";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Location = new System.Drawing.Point(111, 107);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(10, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = " ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // InputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 156);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.waiterActual);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.agree);
@@ -121,5 +134,6 @@
         private System.Windows.Forms.Button agree;
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Label waiterActual;
+        private System.Windows.Forms.Label label1;
     }
 }

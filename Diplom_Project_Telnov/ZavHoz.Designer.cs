@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.staffButton = new System.Windows.Forms.Label();
             this.guestsbd = new System.Windows.Forms.Label();
             this.usersButton = new System.Windows.Forms.Label();
             this.offButtonP = new System.Windows.Forms.Panel();
@@ -80,6 +81,7 @@
             this.commentText = new System.Windows.Forms.TextBox();
             this.comment = new System.Windows.Forms.Label();
             this.guestPanel = new System.Windows.Forms.Panel();
+            this.delStaff = new System.Windows.Forms.Button();
             this.toSumm = new System.Windows.Forms.TextBox();
             this.deleteLine = new System.Windows.Forms.Button();
             this.Поиск = new System.Windows.Forms.Button();
@@ -89,7 +91,6 @@
             this.nameSearch = new System.Windows.Forms.RadioButton();
             this.searchField = new System.Windows.Forms.TextBox();
             this.guestdata = new System.Windows.Forms.DataGridView();
-            this.staffButton = new System.Windows.Forms.Label();
             this.menuPanel.SuspendLayout();
             this.offButtonP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.offButtonL)).BeginInit();
@@ -115,6 +116,18 @@
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(224, 574);
             this.menuPanel.TabIndex = 0;
+            // 
+            // staffButton
+            // 
+            this.staffButton.AutoSize = true;
+            this.staffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.staffButton.Location = new System.Drawing.Point(29, 234);
+            this.staffButton.MaximumSize = new System.Drawing.Size(170, 0);
+            this.staffButton.Name = "staffButton";
+            this.staffButton.Size = new System.Drawing.Size(110, 22);
+            this.staffButton.TabIndex = 28;
+            this.staffButton.Text = "Сотрудники";
+            this.staffButton.Click += new System.EventHandler(this.staffButton_Click);
             // 
             // guestsbd
             // 
@@ -625,6 +638,7 @@
             // 
             // guestPanel
             // 
+            this.guestPanel.Controls.Add(this.delStaff);
             this.guestPanel.Controls.Add(this.toSumm);
             this.guestPanel.Controls.Add(this.deleteLine);
             this.guestPanel.Controls.Add(this.Поиск);
@@ -638,6 +652,17 @@
             this.guestPanel.Name = "guestPanel";
             this.guestPanel.Size = new System.Drawing.Size(1036, 574);
             this.guestPanel.TabIndex = 28;
+            // 
+            // delStaff
+            // 
+            this.delStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.delStaff.Location = new System.Drawing.Point(394, 420);
+            this.delStaff.Name = "delStaff";
+            this.delStaff.Size = new System.Drawing.Size(192, 43);
+            this.delStaff.TabIndex = 10;
+            this.delStaff.Text = "Удалить сотрудника";
+            this.delStaff.UseVisualStyleBackColor = true;
+            this.delStaff.Click += new System.EventHandler(this.delStaff_Click);
             // 
             // toSumm
             // 
@@ -686,7 +711,7 @@
             // 
             this.idSearch.AutoSize = true;
             this.idSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.idSearch.Location = new System.Drawing.Point(30, 420);
+            this.idSearch.Location = new System.Drawing.Point(30, 388);
             this.idSearch.Name = "idSearch";
             this.idSearch.Size = new System.Drawing.Size(67, 26);
             this.idSearch.TabIndex = 4;
@@ -699,7 +724,7 @@
             // 
             this.summSearch.AutoSize = true;
             this.summSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.summSearch.Location = new System.Drawing.Point(30, 388);
+            this.summSearch.Location = new System.Drawing.Point(30, 420);
             this.summSearch.Name = "summSearch";
             this.summSearch.Size = new System.Drawing.Size(107, 26);
             this.summSearch.TabIndex = 3;
@@ -732,23 +757,11 @@
             // guestdata
             // 
             this.guestdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.guestdata.Location = new System.Drawing.Point(3, 0);
+            this.guestdata.Location = new System.Drawing.Point(8, 3);
             this.guestdata.Name = "guestdata";
             this.guestdata.Size = new System.Drawing.Size(1024, 333);
             this.guestdata.TabIndex = 0;
             this.guestdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guestdata_CellContentClick);
-            // 
-            // staffButton
-            // 
-            this.staffButton.AutoSize = true;
-            this.staffButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.staffButton.Location = new System.Drawing.Point(29, 234);
-            this.staffButton.MaximumSize = new System.Drawing.Size(170, 0);
-            this.staffButton.Name = "staffButton";
-            this.staffButton.Size = new System.Drawing.Size(110, 22);
-            this.staffButton.TabIndex = 28;
-            this.staffButton.Text = "Сотрудники";
-            this.staffButton.Click += new System.EventHandler(this.staffButton_Click);
             // 
             // ZavHoz
             // 
@@ -861,5 +874,6 @@
         private System.Windows.Forms.TextBox searchField;
         private System.Windows.Forms.TextBox toSumm;
         private System.Windows.Forms.Label staffButton;
+        private System.Windows.Forms.Button delStaff;
     }
 }

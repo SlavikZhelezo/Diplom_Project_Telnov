@@ -28,8 +28,6 @@ namespace Diplom_Project_Telnov
             if (Table.TableWaiter == "Александр Алексеев")
                 Table.TableWaiter = "1";
 
-            MessageBox.Show(Table.TableWaiter);
-
             string tableident = Table.TableTable + " " + Table.TableTimer;
             try
             {
@@ -57,6 +55,13 @@ namespace Diplom_Project_Telnov
 
         private void cancel_Click(object sender, EventArgs e)
         {
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Create_order ord = new Create_order();
+            ord.Show();
             this.Hide();
         }
     }

@@ -44,6 +44,8 @@ namespace Diplom_Project_Telnov
             guestPanel.Visible = false;
             comment.Visible = true;
             commentText.Visible = true;
+            costBox.Visible = false;
+            costProducts.Visible = false;
         }
 
         private void orderProducts_Click(object sender, EventArgs e)
@@ -78,6 +80,8 @@ namespace Diplom_Project_Telnov
             guestPanel.Visible = false;
             comment.Visible = true;
             commentText.Visible = true;
+            costBox.Visible = false;
+            costProducts.Visible = false;
         }
 
         int line = 1;
@@ -89,7 +93,7 @@ namespace Diplom_Project_Telnov
             string quant = quantityOfProd.Text;
             string comm = commentText.Text;
 
-            dataGridView1.Rows.Add(line.ToString(), nameprod, quant, idprov,  comm);
+            dataGridView1.Rows.Add(line.ToString(),  comm, nameprod, quant, idprov);
             line++;
         }
 
@@ -377,6 +381,7 @@ namespace Diplom_Project_Telnov
             guestPanel.Visible = false;
             comment.Visible = false;
             commentText.Visible = false;
+            delStaff.Visible = false;
 
             userPanel.Visible = true;
 
@@ -559,6 +564,7 @@ namespace Diplom_Project_Telnov
             phoneSearch.Visible = true;
             idSearch.Visible = true;
             toSumm.Visible = false;
+            delStaff.Visible = false;
 
             string str = "server=localhost;user=root;password=Semenovski3Polk13;database=client_database;port=3306";
             MySqlConnection connection = new MySqlConnection(str);
@@ -679,15 +685,51 @@ namespace Diplom_Project_Telnov
             guestPanel.Visible = true;
             Поиск.Visible = false;
             deleteLine.Visible = false;
-            searchField.Visible = false;
-            nameSearch.Visible = false;
+            searchField.Visible = true;
+            nameSearch.Visible = true;
             summSearch.Visible = false;
             phoneSearch.Visible = false;
-            idSearch.Visible = false;
+            idSearch.Visible = true;
             toSumm.Visible = false;
+            delStaff.Visible = true;
 
             DB db = new DB();
             db.getConnection();
+            try
+            {
+                db.openConnection();
+                string sql = "SELECT * FROM staff ";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, db.getConnection());
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                guestdata.DataSource = ds.Tables[0];
+                db.closeConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void delStaff_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("Delete from staff where `id_staff` = " + searchField.Text + " or `Name`= '" + searchField + "'", db.getConnection());
+                db.openConnection();
+
+                if (cmd.ExecuteNonQuery() == 1)
+                    MessageBox.Show("Данные сотрудника удалены");
+                else
+                    MessageBox.Show("Ошибка при удалении данных");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
             try
             {
                 db.openConnection();

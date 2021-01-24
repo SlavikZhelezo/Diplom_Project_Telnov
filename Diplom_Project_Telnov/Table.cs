@@ -12,6 +12,9 @@ namespace Diplom_Project_Telnov
         public static string TableTimer { get; set; }
         public static string TableGuest { get; set; }
         public static string TableTable { get; set; }
+        public static string TableSumm { get; set; }
+
+
 
 
 

@@ -58,6 +58,7 @@
             this.waiter5 = new System.Windows.Forms.Label();
             this.guest5 = new System.Windows.Forms.Label();
             this.stopList = new System.Windows.Forms.Button();
+            this.stopdata = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.offButtonL)).BeginInit();
             this.offButtonP.SuspendLayout();
             this.ordersList.SuspendLayout();
@@ -66,6 +67,7 @@
             this.table3Panel.SuspendLayout();
             this.table4Panel.SuspendLayout();
             this.table5Panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stopdata)).BeginInit();
             this.SuspendLayout();
             // 
             // exitButton
@@ -110,6 +112,7 @@
             this.ordersList.Controls.Add(this.table3Panel);
             this.ordersList.Controls.Add(this.table4Panel);
             this.ordersList.Controls.Add(this.table5Panel);
+            this.ordersList.Controls.Add(this.stopdata);
             this.ordersList.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.ordersList.Location = new System.Drawing.Point(248, 13);
             this.ordersList.Name = "ordersList";
@@ -367,6 +370,15 @@
             this.stopList.TabIndex = 19;
             this.stopList.Text = "Ограниченные блюда";
             this.stopList.UseVisualStyleBackColor = true;
+            this.stopList.Click += new System.EventHandler(this.stopList_Click);
+            // 
+            // stopdata
+            // 
+            this.stopdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.stopdata.Location = new System.Drawing.Point(3, 109);
+            this.stopdata.Name = "stopdata";
+            this.stopdata.Size = new System.Drawing.Size(584, 351);
+            this.stopdata.TabIndex = 4;
             // 
             // Waiter
             // 
@@ -392,6 +404,7 @@
             this.table4Panel.PerformLayout();
             this.table5Panel.ResumeLayout(false);
             this.table5Panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stopdata)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,5 +441,6 @@
         private System.Windows.Forms.Label waiter5;
         private System.Windows.Forms.Label guest5;
         private System.Windows.Forms.Button stopList;
+        private System.Windows.Forms.DataGridView stopdata;
     }
 }

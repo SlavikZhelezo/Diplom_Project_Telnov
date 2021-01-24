@@ -170,6 +170,26 @@ namespace Diplom_Project_Telnov
             }
             guest1.Text = Table.TableGuest;
         }
+
+        private void stopList_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            db.getConnection();
+            try
+            {
+                db.openConnection();
+                string sql = "SELECT * FROM stoplist ";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, db.getConnection());
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                stopdata.DataSource = ds.Tables[0];
+                db.closeConnection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 
 
